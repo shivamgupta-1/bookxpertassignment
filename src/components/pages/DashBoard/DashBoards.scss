@@ -1,0 +1,164 @@
+$grad-start: #667eea;
+$grad-mid: #764ba2;
+$grad-end: #f093fb;
+$accent: #764ba2;
+$card-bg: rgba(255, 255, 255, 0.9);
+$text-color: #333;
+$light-bg: #f9f9f9;
+$active-bg: #a4a797;
+
+.dashboard {
+    background-color: $light-bg;
+    height: 100vh;
+
+    .dash-header {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $accent;
+        font-size: 2rem;
+    }
+
+    .dash-tab {
+        height: 80px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: $light-bg;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dash-card {
+        text-align: center;
+        flex: 1;
+        margin: 0 10px;
+        padding: 10px;
+        background: $card-bg;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .dash-card h3 {
+        margin: 0 0 10px 0;
+        font-size: 1rem;
+        color: $accent;
+    }
+
+    .dash-card p {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $text-color;
+    }
+
+    .dash-tab-card span {
+        font-size: 1rem;
+        color: #f9f9f9;
+    }
+
+    .dash-tabBar {
+        display: flex;
+        margin-top: 20px;
+        background-color: #333;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .dash-tab-card {
+        flex: 1;
+        text-align: center;
+        padding: 10px 6px;
+        border-bottom: 2px solid $accent;
+        cursor: pointer;
+        transition: border-bottom 0.3s ease;
+        margin: 0 10px;
+    }
+
+    .dash-tab-card:hover {
+        background: rgba($active-bg, 0.8);
+        border-radius: 15px;
+    }
+
+    .dash-tab-card.active {
+        border-bottom: none;
+        background: $active-bg;
+        border-radius: 15px;
+    }
+
+    .printBtn {
+        display: flex;
+        justify-content: flex-end;
+        margin: 15px 10px;
+
+        .print-btn {
+            background-color: #62996f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    }
+
+    .delete-modal {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 20px 20px 20px;
+
+        p {
+            font-size: 1.3rem;
+            color: $text-color;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .delete-actions {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: flex-end;
+
+            button {
+                padding: 10px 24px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 1rem;
+                color: #fff;
+                transition: transform 0.1s ease;
+
+                &:active {
+                    transform: scale(0.98);
+                }
+
+                &.confirm-btn {
+                    background-color: #e74c3c;
+                    box-shadow: 0 4px 6px rgba(231, 76, 60, 0.3);
+                }
+
+                &.cancel-btn {
+                    background-color: #95a5a6;
+                    box-shadow: 0 4px 6px rgba(149, 165, 166, 0.3);
+                }
+            }
+        }
+    }
+
+    .submit-btn {
+        background-color: #548860;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 15px;
+        width: 100%;
+    }
+}

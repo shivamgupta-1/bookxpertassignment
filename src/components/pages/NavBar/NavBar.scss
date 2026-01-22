@@ -1,0 +1,93 @@
+$nav-bg: rgba(255,255,255,0.9);
+$nav-border: rgba(0,0,0,0.08);
+$accent: #764ba2;
+$btn-disabled-start: #dfe6f3;
+$btn-disabled-end: #e9eef9;
+$btn-disabled-text: #8a90a6;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(6px) saturate(110%);
+  background: $nav-bg;
+  border-bottom: 1px solid $nav-border;
+  z-index: 900;
+}
+
+.nav-user{
+  margin-right: 1rem;
+  font-weight: 500;
+  color: #65bc27;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  gap: 1rem;
+}
+
+.nav-logo {
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #2b2b2b;
+  text-decoration: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  transition: background 140ms ease, color 140ms ease;
+}
+.nav-link:hover {
+  background: rgba($accent, 0.08);
+  color: $accent;
+}
+.nav-link.active {
+  background: rgba($accent, 0.15);
+  color: $accent;
+}
+
+
+.nav-link:disabled,
+.nav-link[disabled] {
+  background: linear-gradient(90deg, $btn-disabled-start 0%, $btn-disabled-end 100%);
+  color: $btn-disabled-text;
+  cursor: not-allowed;
+  opacity: 1;
+  box-shadow: none;
+  transform: none;
+}
+
+.nav-link:disabled:hover,
+.nav-link[disabled]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+
+.nav-logout {
+  background: linear-gradient(90deg, rgba(91, 110, 255, 1) 0%, rgba(61, 74, 255, 1) 100%);
+  color: white;
+  border: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .nav-inner { padding: 0.5rem; }
+  .nav-logo { font-size: 1rem }
+}

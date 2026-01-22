@@ -1,0 +1,90 @@
+$success-start: #e6ffef;
+$success-end: #d0f7df;
+$success-border: #2bb673;
+$error-start: #fff0f0;
+$error-end: #ffe3e3;
+$error-border: #e14b4b;
+
+.alert-msg {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 9999;
+  width: min(520px, 92%);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(15,20,30,0.06);
+  font-size: 0.95rem;
+  color: #0f1720;
+  border: 1px solid transparent;
+  animation: slideFadeIn 260ms ease both;
+}
+
+.alert-msg span {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 20px;
+  color: #0e0e0e;
+}
+
+.alert-msg::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.alert-msg.success {
+  background: linear-gradient(180deg, $success-start 0%, $success-end 100%);
+  border-color: rgba($success-border, 0.12);
+}
+.alert-msg.success::before {
+  background: $success-border;
+  box-shadow: 0 4px 12px rgba(43,182,115,0.16);
+}
+
+.alert-msg.error {
+  background: linear-gradient(180deg, $error-start 0%, $error-end 100%);
+  border-color: rgba($error-border, 0.12);
+  color: #e11f1f;
+
+}
+.alert-msg.error::before {
+  background: $error-border;
+  box-shadow: 0 4px 12px rgba(225,75,75,0.14);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(10,10,10,0.6);
+  font-size: 1rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  transition: background 120ms ease, color 120ms ease, transform 120ms ease;
+}
+.close-btn:hover {
+  background: rgba(0,0,0,0.04);
+  color: rgba(10,10,10,0.9);
+  transform: translateY(-1px);
+}
+
+@keyframes slideFadeIn {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 520px) {
+  .alert-msg { padding: 0.6rem 0.8rem; border-radius: 8px; }
+  .alert-msg span { font-size: 0.9rem; }
+}

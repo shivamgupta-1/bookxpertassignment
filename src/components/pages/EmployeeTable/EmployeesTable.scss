@@ -1,0 +1,137 @@
+.employees-table-wrapper {
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  margin: 20px;
+
+  .ag-theme-quartz {
+    --ag-header-height: 80px;
+    --ag-row-height: 80px;
+    --ag-header-background-color: #f8f9fa;
+    --ag-header-foreground-color: #495057;
+    --ag-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ag-font-size: 14px;
+    --ag-row-border-color: #f1f3f5;
+    --ag-selected-row-background-color: #e7f5ff;
+    --ag-row-hover-color: #f8f9fa;
+    --ag-odd-row-background-color: #f1f3f5;
+    
+    .ag-header-cell-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      justify-content: center;
+    }
+
+    .ag-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ag-root-wrapper {
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+    }
+  }
+
+  .profile-image-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  }
+
+  .status-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      
+      &.active {
+        background-color: #d3f9d8;
+        color: #2b8a3e;
+        
+        &::before {
+          content: '';
+          display: block;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: #2b8a3e;
+          margin-right: 6px;
+        }
+      }
+      
+      &.inactive {
+        background-color: #ffe3e3;
+        color: #c92a2a;
+        
+        &::before {
+          content: '';
+          display: block;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: #c92a2a;
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    
+    button {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      
+      &.edit-btn {
+        background-color: #e7f5ff;
+        color: #1971c2;
+        
+        &:hover {
+          background-color: #d0ebff;
+        }
+      }
+      
+      &.delete-btn {
+        background-color: #ffe3e3;
+        color: #e03131;
+        
+        &:hover {
+          background-color: #ffc9c9;
+        }
+      }
+    }
+  }
+}
