@@ -18,7 +18,7 @@ const ValidationSchema = Yup.object().shape({
     .oneOf(["Male", "Female", "Other"], "Select a valid gender")
     .required("Gender is required"),
   profileImagePreview: Yup.mixed().required("Profile image is required"),
-  profileImage: Yup.mixed().required("Profile image is required"),
+ // profileImage: Yup.mixed().required("Profile image is required"),
 });
 
 const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
@@ -61,7 +61,6 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
     "Ladakh (UT)",
     "Puducherry (UT)",
   ];
-
   return (
     <div className="employee-form">
       <h2>{`${headerText} Employee`}</h2>
@@ -70,11 +69,11 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
           fullName: editData?.fullName || "",
           employeeId: editData?.employeeId || "",
           state: editData?.state || "",
-          dateOfBirth: editData?.dateOfBirth ? editData?.dateOfBirth : null,
+          dateOfBirth: editData?.dateOfBirth ? new Date(editData.dateOfBirth) : null,
           gender: editData?.gender || "",
           active: editData?.active || false,
-          profileImage: editData?.profileImage || null,
-          profileImagePreview: editData?.profileImagePreview || null,
+          profileImage: null,
+          profileImagePreview: editData?.profileImagePreview || editData?.profileImage || null,
         }}
         enableReinitialize
         validationSchema={ValidationSchema}
@@ -94,6 +93,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
           const handleToggle = () => {
             setFieldValue("active", !values.active);
           };
+            console.log("editData in form:",  values);
 
           const handleImageChange = (e) => {
             const { files } = e.target;
@@ -102,7 +102,6 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
             if (file) {
               const reader = new FileReader();
               reader.onloadend = () => {
-                // set both the file and preview separately
                 setFieldValue("profileImage", file);
                 setFieldValue("profileImagePreview", reader.result);
               };
