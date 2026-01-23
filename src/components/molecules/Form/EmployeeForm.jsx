@@ -18,6 +18,7 @@ const ValidationSchema = Yup.object().shape({
     .oneOf(["Male", "Female", "Other"], "Select a valid gender")
     .required("Gender is required"),
   profileImagePreview: Yup.mixed().required("Profile image is required"),
+  profileImage: Yup.mixed().required("Profile image is required"),
 });
 
 const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
@@ -113,7 +114,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
             <Form>
               <div className="grid">
                 <div className="form-field">
-                  <label htmlFor="fullName">Full Name:</label>
+                  <label htmlFor="fullName">Full Name<span className="required">*</span></label>
                   <input
                     type="text"
                     id="fullName"
@@ -134,7 +135,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
                   />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="gender">Gender:</label>
+                  <label htmlFor="gender">Gender<span className="required">*</span></label>
                   <select
                     id="gender"
                     name="gender"
@@ -158,7 +159,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
                   />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="dob">Date of Birth:</label>
+                  <label htmlFor="dob">Date of Birth<span className="required">*</span></label>
                   <DatePicker
                     selected={values?.dateOfBirth}
                     onChange={(date) =>
@@ -187,7 +188,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
                   />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="profileImage">Profile Image:</label>
+                  <label htmlFor="profileImage">Profile Image<span className="required">*</span></label>
                   <div
                     style={{
                       display: "flex",
@@ -219,9 +220,14 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
                       </div>
                     )}
                   </div>
+                  <ErrorMessage
+                    name="profileImagePreview"
+                    component="div"
+                    className="error"
+                  />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="state">State:</label>
+                  <label htmlFor="state">State<span className="required">*</span></label>
                   <select
                     id="state"
                     name="state"
@@ -233,6 +239,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
                     }
                     required
                   >
+                    <option value="">Select State</option>
                     {states &&
                       states.map((stateObj) => (
                         <option key={stateObj} value={stateObj}>
@@ -247,7 +254,7 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
                   />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="active">Active:</label>
+                  <label htmlFor="active">Status</label>
                   <Switch
                     checked={values?.active}
                     onClick={handleToggle}
