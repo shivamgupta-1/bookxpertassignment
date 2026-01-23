@@ -93,8 +93,6 @@ const EmployeeForm = ({ headerText, handleAdd, editData = {} }) => {
           const handleToggle = () => {
             setFieldValue("active", !values.active);
           };
-            console.log("editData in form:",  values);
-
           const handleImageChange = (e) => {
             const { files } = e.target;
             const file = files[0];
